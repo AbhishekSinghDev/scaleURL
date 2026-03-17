@@ -6,15 +6,15 @@
 
 ## My Progress Overview
 
-| Phase   | Focus               | Status         |
-| ------- | ------------------- | -------------- |
-| Phase 1 | Core API Foundation | ⬜ Not started |
-| Phase 2 | Auth & Middleware   | ⬜ Not started |
-| Phase 3 | Analytics Engine    | ⬜ Not started |
-| Phase 4 | Scale & Performance | ⬜ Not started |
-| Phase 5 | Production Infra    | ⬜ Not started |
-| Phase 6 | Advanced Features   | ⬜ Not started |
-| Phase 7 | Scale Architecture  | ⬜ Not started |
+| Phase   | Focus               | Status      |
+| ------- | ------------------- | ----------- |
+| Phase 1 | Core API Foundation | In Progress |
+| Phase 2 | Auth & Middleware   | Not started |
+| Phase 3 | Analytics Engine    | Not started |
+| Phase 4 | Scale & Performance | Not started |
+| Phase 5 | Production Infra    | Not started |
+| Phase 6 | Advanced Features   | Not started |
+| Phase 7 | Scale Architecture  | Not started |
 
 ---
 
@@ -25,7 +25,7 @@
 ### Setup
 
 - [ ] Initialize Go module (`go mod init`)
-- [ ] Install Gin or Chi router
+- [ ] Install Gin router
 - [ ] Set up project folders (`cmd/`, `internal/`, `config/`)
 - [ ] Load environment variables with `.env` (using cleanenv)
 
