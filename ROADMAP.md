@@ -24,10 +24,10 @@
 
 ### Setup
 
-- [ ] Initialize Go module (`go mod init`)
-- [ ] Install Gin router
-- [ ] Set up project folders (`cmd/`, `internal/`, `config/`)
-- [ ] Load environment variables with `.env` (using cleanenv)
+- [*] Initialize Go module (`go mod init`)
+- [*] Install Gin router
+- [*] Set up project folders (`cmd/`, `internal/`, `config/`)
+- [*] Load environment variables with `.env` (using cleanenv)
 
 ### Database
 
