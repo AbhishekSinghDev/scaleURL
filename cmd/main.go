@@ -10,26 +10,32 @@ import (
 	"time"
 
 	"github.com/AbhishekSinghDev/scaleURL/internal/config"
+	"github.com/AbhishekSinghDev/scaleURL/internal/features/url"
 	"github.com/AbhishekSinghDev/scaleURL/internal/logger"
 	"github.com/AbhishekSinghDev/scaleURL/internal/middleware"
+	"github.com/AbhishekSinghDev/scaleURL/internal/storage/postgres"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
 )
 
 func main() {
-	// MustLoad function is necessary for proper function of the server, must be on the top level of the server
 	config.MustLoad()
-
-	env := config.Get()
-
 	logger.Init()
+	cfg := config.Get()
 
+	pool := postgres.New(cfg)
 	router := gin.New()
+
+	urlRepo := url.NewRepository(pool.Db)
+	urlService := url.NewService(urlRepo)
+	urlHandler := url.NewHandler(urlService)
+
+	router.POST("/shorten", urlHandler.Create)
 
 	// middlewares
 	router.Use(middleware.RequestIdMiddleware(), middleware.LoggerMiddleware(), gin.Recovery())
 
-	address := fmt.Sprintf("localhost:%s", env.Port)
+	address := fmt.Sprintf("localhost:%s", cfg.Port)
 	server := &http.Server{
 		Addr: address,
 		Handler: router,
@@ -55,6 +61,7 @@ func main() {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
+	defer pool.Db.Close()
 
 	if err := server.Shutdown(ctx); err != nil {
 		log.Error().Str("error", err.Error()).Msg("force shutdown")

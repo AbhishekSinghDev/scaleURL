@@ -9,6 +9,7 @@ import (
 
 type Env struct {
 	types.HttpServer
+	types.Variables
 }
 
 var cfg *Env

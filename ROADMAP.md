@@ -31,10 +31,9 @@
 
 ### Database
 
-- [ ] Spin up PostgreSQL (local or Docker)
-- [ ] Create `urls` table
-- [ ] Connect to DB using `GORM`
-- [ ] Write a DB connection helpers
+- [*] Spin up PostgreSQL (local or Docker)
+- [*] Create `urls` table
+- [-] Write a DB connection helpers
 
 ### Core Handlers
 
